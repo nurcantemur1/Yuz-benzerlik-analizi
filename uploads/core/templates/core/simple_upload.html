@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+  <link rel="stylesheet" href="{% static 'Green/css/isotope.css' %}" type="text/css" media="screen" >
+  <link rel="stylesheet" href="{% static 'Green/js/fancybox/jquery.fancybox.css' %}" type="text/css" media="screen">
+  <link rel="stylesheet" href="{% static 'Green/css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'Green/css/bootstrap-theme.css' %}">
+  <link rel="stylesheet" href="{% static 'Green/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'Green/css/animate.css' %}">
+  <link rel="stylesheet" href="{% static 'Green/css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'Green/css/responsive-slider.css' %}">
+  <link rel="stylesheet" href="{% static 'Green/skin/default.css' %}">
+  <section id="team" class="team-section appear clearfix">
+    <div class="container">
+
+      <div class="row mar-bot10">
+        <div class="col-md-offset-3 col-md-6">
+          <div class="section-header">
+            <div class="wow bounceIn">
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col">
+                    <input type="file" name="myfile">
+                  </div>
+                  <div class="col">
+                    <button type="submit">Upload</button>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row align-center mar-bot45">
+        {% for obj in result %}
+          {% if obj %}
+            <div class="col-md-3">
+              <div class="wow bounceIn" data-animation-delay="4.8s">
+                <div class="team-member">
+                  <div class="profile-picture">
+                    <figure><img src ="{% static '' %}{{obj.path}}" alt="" width="200px" height="200px"></figure>
+                    <div class="profile-overlay"></div>
+                  </div>
+                  <div class="team-detail">
+                    <h4>{{obj.name}}</h4>
+                    <h4>{{ obj.value }}</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock %}
+
+  <script src="{% static 'Green/js/modernizr-2.6.2-respond-1.1.0.min.js' %}"></script>
+  <script src="{% static 'Green/js/jquery.js' %}"></script>
+<script src="{% static 'Green/js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'Green/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'Green/js/jquery.isotope.min.js' %}"></script>
+<script src="{% static 'Green/js/jquery.nicescroll.min.js' %}"></script>
+<script src="{% static 'Green/js/fancybox/jquery.fancybox.pack.js' %}"></script>
+<script src="{% static 'Green/js/skrollr.min.j' %}"></script>
+<script src="{% static 'Green/js/jquery.scrollTo.js' %}"></script>
+<script src="{% static 'Green/js/jquery.localScroll.js' %}"></script>
+<script src="{% static 'Green/js/stellar.js' %}"></script>
+<script src="{% static 'Green/js/responsive-slider.js' %}"></script>
+<script src="{% static 'Green/js/jquery.appear.js' %}"></script>
+<script src="{% static 'Green/js/grid.js' %}"></script>
+<script src="{% static 'Green/js/main.js' %}"></script>
+<script src="{% static 'Green/js/wow.min.js' %}"></script>
